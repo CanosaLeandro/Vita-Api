@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_01_234446) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_02_103212) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "fromCoin", limit: 3
+    t.string "toCoin", limit: 3
+    t.decimal "amount", precision: 12, scale: 8, null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -20,6 +33,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_234446) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.decimal "balance", precision: 12, scale: 8, default: "0.0"
     t.string "jti", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true

@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+user = User.create(email: "test@test.com", password: "1234", name: "Test", balance: 500)
+
+transactions = Transaction.create([
+  { fromCoin: "BTC", toCoin: "USD", amount: 0.00000001, user: user },
+  { fromCoin: "USD", toCoin: "BTC", amount: 10.20, user: user },
+  { fromCoin: "BTC", toCoin: "USD", amount: 0.00000002, user: user },
+  { fromCoin: "USD", toCoin: "BTC", amount: 30.40, user: user }
+])

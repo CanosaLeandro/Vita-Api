@@ -80,6 +80,7 @@ GEM
     brakeman (6.2.1)
       racc
     builder (3.3.0)
+    byebug (11.1.3)
     concurrent-ruby (1.3.4)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -96,6 +97,7 @@ GEM
     devise-jwt (0.12.1)
       devise (~> 4.0)
       warden-jwt_auth (~> 0.10)
+    diff-lcs (1.5.1)
     drb (2.2.1)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
@@ -107,6 +109,11 @@ GEM
       concurrent-ruby (~> 1.0)
       zeitwerk (~> 2.6)
     erubi (1.13.0)
+    factory_bot (6.5.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -161,6 +168,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
+    pg (1.5.8)
     psych (5.1.2)
       stringio
     puma (6.4.3)
@@ -215,6 +223,19 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.1)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
     rubocop (1.66.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -245,16 +266,6 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     securerandom (0.3.1)
-    sqlite3 (2.1.0-aarch64-linux-gnu)
-    sqlite3 (2.1.0-aarch64-linux-musl)
-    sqlite3 (2.1.0-arm-linux-gnu)
-    sqlite3 (2.1.0-arm-linux-musl)
-    sqlite3 (2.1.0-arm64-darwin)
-    sqlite3 (2.1.0-x86-linux-gnu)
-    sqlite3 (2.1.0-x86-linux-musl)
-    sqlite3 (2.1.0-x86_64-darwin)
-    sqlite3 (2.1.0-x86_64-linux-gnu)
-    sqlite3 (2.1.0-x86_64-linux-musl)
     stringio (3.1.1)
     thor (1.3.2)
     timeout (0.4.1)
@@ -294,15 +305,18 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
+  byebug (~> 11.1)
   debug
   devise (~> 4.9)
   devise-jwt (~> 0.12.1)
+  factory_bot_rails (~> 6.4)
   jsonapi-serializer (~> 2.2)
+  pg (~> 1.1)
   puma (>= 5.0)
   rack-cors (~> 2.0)
   rails (~> 7.2.1)
+  rspec (~> 3.13)
   rubocop-rails-omakase
-  sqlite3 (>= 1.4)
   tzinfo-data
 
 BUNDLED WITH
