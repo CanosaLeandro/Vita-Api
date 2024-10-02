@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "1260f8b8-2a4e-4338-8202-3cef0681fd89",
+		"name": "Vita Api",
+		"description": "Endpoints del desafío técnico de Vita Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16064913"
+	},
+	"item": [
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Transaction create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transaction\": {\n\t\t\"fromCoin\": \"BTC\",\n\t\t\"toCoin\": \"USD\",\n\t\t\"amount\": 0.00000001,\n\t\t\"user_id\": \"1\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"transactions"
+							]
+						},
+						"description": "Crear una transacción"
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/transactions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"transactions",
+								"1"
+							]
+						},
+						"description": "Mostrar detalles de una transacción"
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"transaction\": {\n\t\t\"user_id\": 2\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/transactions/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"transactions",
+								"list"
+							]
+						},
+						"description": "Listar las transacciones de un usuario"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints referentes a transacciones"
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n\t\t\"email\": \"test@test.com\",\n\t\t\"password\": \"123456\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pricecheck BTC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/pricecheck_BTC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pricecheck_BTC"
+					]
+				},
+				"description": "Consultar precio de BTC en USD"
+			},
+			"response": []
+		},
+		{
+			"name": "Sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": {\n\t\t\"email\": \"pepito@test.com\",\n\t\t\"password\": \"123456\",\n\t\t\"name\": \"John\",\n\t\t\"jti\": \"Hola\"\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
