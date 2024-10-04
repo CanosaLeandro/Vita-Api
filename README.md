@@ -3,4 +3,4 @@
 
 * Database adapter: PostgreSQL
 
-* Tests: On-going (couldn't make factory bot to work)
+* Tests:(couldn't make factory bot to work)
